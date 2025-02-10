@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pascal/core/theme/foundation/app_theme.dart';
-import 'package:pascal/core/theme/resources/font.dart';
+import 'package:pascal/features/common/theme/foundation/app_theme.dart';
+import 'package:pascal/features/common/theme/resources/font.dart';
 
 class LightTheme implements AppTheme {
   // 싱글톤 패턴 구현

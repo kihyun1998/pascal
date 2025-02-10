@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/core/theme/foundation/app_theme.dart';
-import 'package:pascal/core/theme/theme/dark_theme.dart';
-import 'package:pascal/core/theme/theme/light_theme.dart';
+import 'package:pascal/features/common/theme/foundation/app_theme.dart';
+import 'package:pascal/features/common/theme/theme/dark_theme.dart';
+import 'package:pascal/features/common/theme/theme/light_theme.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'theme_provider.g.dart';
