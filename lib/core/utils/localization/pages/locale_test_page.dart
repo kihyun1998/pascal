@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/features/common/localization/provider/l10n_provider.dart';
-import 'package:pascal/features/common/localization/provider/locale_provider.dart';
-import 'package:pascal/features/common/theme/foundation/app_theme.dart';
-import 'package:pascal/features/common/theme/providers/theme_provider.dart';
+import 'package:pascal/core/design/theme/foundation/app_theme.dart';
+import 'package:pascal/core/design/theme/providers/theme_provider.dart';
+import 'package:pascal/core/utils/localization/provider/l10n_provider.dart';
+import 'package:pascal/core/utils/localization/provider/locale_provider.dart';
 
 class LocaleTestPage extends ConsumerWidget {
   const LocaleTestPage({super.key});

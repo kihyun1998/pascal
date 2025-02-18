@@ -5,582 +5,43 @@
 pascal/
 └── lib/
     ├── core/
-        ├── localization/
-        │   ├── generated/
-        │   │   ├── intl/
-        │   │   │   ├── messages_all.dart
-        │   │   │   ├── messages_en.dart
-        │   │   │   └── messages_ko.dart
-        │   │   └── l10n.dart
-        │   ├── l10n/
-        │   │   ├── intl_en.arb
-        │   │   └── intl_ko.arb
-        │   ├── pages/
-        │   │   └── locale_test_page.dart
-        │   └── provider/
-        │   │   ├── l10n_provider.dart
-        │   │   └── locale_provider.dart
-        └── theme/
-        │   ├── foundation/
-        │       ├── app_color.dart
-        │       ├── app_font.dart
-        │       ├── app_mode.dart
-        │       └── app_theme.dart
-        │   ├── pages/
-        │       └── theme_test_page.dart
-        │   ├── providers/
-        │       └── theme_provider.dart
-        │   ├── resources/
-        │       ├── font.dart
-        │       └── palette.dart
+        ├── design/
         │   └── theme/
-        │       ├── dark_theme.dart
-        │       └── light_theme.dart
+        │   │   ├── foundation/
+        │   │       ├── app_color.dart
+        │   │       ├── app_font.dart
+        │   │       ├── app_mode.dart
+        │   │       └── app_theme.dart
+        │   │   ├── pages/
+        │   │       └── theme_test_page.dart
+        │   │   ├── providers/
+        │   │       └── theme_provider.dart
+        │   │   ├── resources/
+        │   │       ├── font.dart
+        │   │       └── palette.dart
+        │   │   └── theme/
+        │   │       ├── dark_theme.dart
+        │   │       └── light_theme.dart
+        └── utils/
+        │   └── localization/
+        │       ├── generated/
+        │           ├── intl/
+        │           │   ├── messages_all.dart
+        │           │   ├── messages_en.dart
+        │           │   └── messages_ko.dart
+        │           └── l10n.dart
+        │       ├── l10n/
+        │           ├── intl_en.arb
+        │           └── intl_ko.arb
+        │       ├── pages/
+        │           └── locale_test_page.dart
+        │       └── provider/
+        │           ├── l10n_provider.dart
+        │           └── locale_provider.dart
     └── main.dart
 ```
 
-## lib/core/localization/generated/intl/messages_all.dart
-```dart
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that looks up messages for specific locales by
-// delegating to the appropriate library.
-
-// Ignore issues from commonly used lints in this file.
-// ignore_for_file:implementation_imports, file_names, unnecessary_new
-// ignore_for_file:unnecessary_brace_in_string_interps, directives_ordering
-// ignore_for_file:argument_type_not_assignable, invalid_assignment
-// ignore_for_file:prefer_single_quotes, prefer_generic_function_type_aliases
-// ignore_for_file:comment_references
-
-import 'dart:async';
-
-import 'package:flutter/foundation.dart';
-import 'package:intl/intl.dart';
-import 'package:intl/message_lookup_by_library.dart';
-import 'package:intl/src/intl_helpers.dart';
-
-import 'messages_en.dart' as messages_en;
-import 'messages_ko.dart' as messages_ko;
-
-typedef Future<dynamic> LibraryLoader();
-Map<String, LibraryLoader> _deferredLibraries = {
-  'en': () => new SynchronousFuture(null),
-  'ko': () => new SynchronousFuture(null),
-};
-
-MessageLookupByLibrary? _findExact(String localeName) {
-  switch (localeName) {
-    case 'en':
-      return messages_en.messages;
-    case 'ko':
-      return messages_ko.messages;
-    default:
-      return null;
-  }
-}
-
-/// User programs should call this before using [localeName] for messages.
-Future<bool> initializeMessages(String localeName) {
-  var availableLocale = Intl.verifiedLocale(
-      localeName, (locale) => _deferredLibraries[locale] != null,
-      onFailure: (_) => null);
-  if (availableLocale == null) {
-    return new SynchronousFuture(false);
-  }
-  var lib = _deferredLibraries[availableLocale];
-  lib == null ? new SynchronousFuture(false) : lib();
-  initializeInternalMessageLookup(() => new CompositeMessageLookup());
-  messageLookup.addLocale(availableLocale, _findGeneratedMessagesFor);
-  return new SynchronousFuture(true);
-}
-
-bool _messagesExistFor(String locale) {
-  try {
-    return _findExact(locale) != null;
-  } catch (e) {
-    return false;
-  }
-}
-
-MessageLookupByLibrary? _findGeneratedMessagesFor(String locale) {
-  var actualLocale =
-      Intl.verifiedLocale(locale, _messagesExistFor, onFailure: (_) => null);
-  if (actualLocale == null) return null;
-  return _findExact(actualLocale);
-}
-
-```
-## lib/core/localization/generated/intl/messages_en.dart
-```dart
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
-// messages from the main program should be duplicated here with the same
-// function name.
-
-// Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
-// ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
-// ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
-// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
-// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
-
-import 'package:intl/intl.dart';
-import 'package:intl/message_lookup_by_library.dart';
-
-final messages = new MessageLookup();
-
-typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
-
-class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
-
-  final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appName": MessageLookupByLibrary.simpleMessage("Pascal"),
-        "language": MessageLookupByLibrary.simpleMessage("Language"),
-        "settings": MessageLookupByLibrary.simpleMessage("Settings")
-      };
-}
-
-```
-## lib/core/localization/generated/intl/messages_ko.dart
-```dart
-// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a ko locale. All the
-// messages from the main program should be duplicated here with the same
-// function name.
-
-// Ignore issues from commonly used lints in this file.
-// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
-// ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
-// ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
-// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
-// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
-
-import 'package:intl/intl.dart';
-import 'package:intl/message_lookup_by_library.dart';
-
-final messages = new MessageLookup();
-
-typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
-
-class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'ko';
-
-  final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appName": MessageLookupByLibrary.simpleMessage("Pascal"),
-        "language": MessageLookupByLibrary.simpleMessage("언어"),
-        "settings": MessageLookupByLibrary.simpleMessage("설정")
-      };
-}
-
-```
-## lib/core/localization/generated/l10n.dart
-```dart
-// GENERATED CODE - DO NOT MODIFY BY HAND
-import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'intl/messages_all.dart';
-
-// **************************************************************************
-// Generator: Flutter Intl IDE plugin
-// Made by Localizely
-// **************************************************************************
-
-// ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
-// ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
-// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
-
-class S {
-  S();
-
-  static S? _current;
-
-  static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
-    return _current!;
-  }
-
-  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
-
-  static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
-    final localeName = Intl.canonicalizedLocale(name);
-    return initializeMessages(localeName).then((_) {
-      Intl.defaultLocale = localeName;
-      final instance = S();
-      S._current = instance;
-
-      return instance;
-    });
-  }
-
-  static S of(BuildContext context) {
-    final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
-    return instance!;
-  }
-
-  static S? maybeOf(BuildContext context) {
-    return Localizations.of<S>(context, S);
-  }
-
-  /// `Pascal`
-  String get appName {
-    return Intl.message(
-      'Pascal',
-      name: 'appName',
-      desc: 'The application name',
-      args: [],
-    );
-  }
-
-  /// `Settings`
-  String get settings {
-    return Intl.message(
-      'Settings',
-      name: 'settings',
-      desc: 'Settings menu title',
-      args: [],
-    );
-  }
-
-  /// `Language`
-  String get language {
-    return Intl.message(
-      'Language',
-      name: 'language',
-      desc: 'Language selection option',
-      args: [],
-    );
-  }
-}
-
-class AppLocalizationDelegate extends LocalizationsDelegate<S> {
-  const AppLocalizationDelegate();
-
-  List<Locale> get supportedLocales {
-    return const <Locale>[
-      Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'ko'),
-    ];
-  }
-
-  @override
-  bool isSupported(Locale locale) => _isSupported(locale);
-  @override
-  Future<S> load(Locale locale) => S.load(locale);
-  @override
-  bool shouldReload(AppLocalizationDelegate old) => false;
-
-  bool _isSupported(Locale locale) {
-    for (var supportedLocale in supportedLocales) {
-      if (supportedLocale.languageCode == locale.languageCode) {
-        return true;
-      }
-    }
-    return false;
-  }
-}
-
-```
-## lib/core/localization/l10n/intl_en.arb
-```arb
-{
-    "@@locale": "en",
-    "appName": "Pascal",
-    "@appName": {
-        "description": "The application name"
-    },
-    "settings": "Settings",
-    "@settings": {
-        "description": "Settings menu title"
-    },
-    "language": "Language",
-    "@language": {
-        "description": "Language selection option"
-    }
-  }
-```
-## lib/core/localization/l10n/intl_ko.arb
-```arb
-{
-    "@@locale": "ko",
-    "appName": "Pascal",
-    "settings": "설정",
-    "language": "언어"
-  }
-```
-## lib/core/localization/pages/locale_test_page.dart
-```dart
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/core/localization/provider/l10n_provider.dart';
-import 'package:pascal/core/localization/provider/locale_provider.dart';
-import 'package:pascal/core/theme/foundation/app_theme.dart';
-import 'package:pascal/core/theme/providers/theme_provider.dart';
-
-class LocaleTestPage extends ConsumerWidget {
-  const LocaleTestPage({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = ref.watch(l10nProvider);
-    final theme = ref.theme;
-    final color = theme.color;
-    final font = theme.font;
-    final currentLocale = ref.watch(localeStateProvider);
-
-    return Scaffold(
-      backgroundColor: color.background,
-      appBar: AppBar(
-        backgroundColor: color.surface,
-        title: Text('다국어 테스트', style: font.title1),
-        actions: [
-          // 언어 변경 버튼
-          TextButton(
-            onPressed: () {
-              final newLocale = currentLocale.languageCode == 'ko'
-                  ? const Locale('en')
-                  : const Locale('ko');
-              ref.read(localeStateProvider.notifier).setLocale(newLocale);
-            },
-            child: Text(
-              currentLocale.languageCode.toUpperCase(),
-              style: font.body1Medium.copyWith(color: color.primary),
-            ),
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // 현재 로케일 정보
-            _buildSection(
-              title: '현재 로케일 정보',
-              content: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildInfoTile('언어 코드', currentLocale.languageCode),
-                  const SizedBox(height: 8),
-                  _buildInfoTile('국가 코드', currentLocale.countryCode ?? '없음'),
-                ],
-              ),
-              font: font,
-              color: color,
-            ),
-
-            const SizedBox(height: 32),
-
-            // 번역 테스트
-            _buildSection(
-              title: '번역 테스트',
-              content: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  _buildTranslationTile(
-                    'appName',
-                    l10n.appName,
-                    font,
-                    color,
-                  ),
-                  const SizedBox(height: 16),
-                  _buildTranslationTile(
-                    'settings',
-                    l10n.settings,
-                    font,
-                    color,
-                  ),
-                  const SizedBox(height: 16),
-                  _buildTranslationTile(
-                    'language',
-                    l10n.language,
-                    font,
-                    color,
-                  ),
-                ],
-              ),
-              font: font,
-              color: color,
-            ),
-
-            const SizedBox(height: 32),
-
-            // 컴포넌트에서의 사용 예시
-            _buildSection(
-              title: '컴포넌트 테스트',
-              content: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // 버튼 예시
-                  ElevatedButton.icon(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: color.primary,
-                      foregroundColor: color.onPrimary,
-                    ),
-                    onPressed: () {},
-                    icon: const Icon(Icons.settings),
-                    label: Text(l10n.settings),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // 카드 예시
-                  Container(
-                    padding: const EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: color.surface,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(l10n.appName, style: font.body1Medium),
-                        const SizedBox(height: 8),
-                        Text(l10n.settings, style: font.body2Medium),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              font: font,
-              color: color,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSection({
-    required String title,
-    required Widget content,
-    required AppFont font,
-    required AppColor color,
-  }) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(title, style: font.title1),
-        const SizedBox(height: 16),
-        content,
-      ],
-    );
-  }
-
-  Widget _buildInfoTile(String label, String value) {
-    return Row(
-      children: [
-        Expanded(
-          flex: 2,
-          child: Text(label),
-        ),
-        Expanded(
-          flex: 3,
-          child: Text(value),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildTranslationTile(
-    String key,
-    String value,
-    AppFont font,
-    AppColor color,
-  ) {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: color.surface,
-        borderRadius: BorderRadius.circular(8),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Key: $key',
-            style: font.body3Medium.copyWith(color: color.hint),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            'Value: $value',
-            style: font.body3Medium,
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-```
-## lib/core/localization/provider/l10n_provider.dart
-```dart
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/core/localization/generated/l10n.dart';
-import 'package:pascal/core/localization/provider/locale_provider.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'l10n_provider.g.dart';
-
-@Riverpod(dependencies: [LocaleState])
-S l10n(Ref ref) {
-  ref.watch(localeStateProvider);
-  return S.current;
-}
-
-```
-## lib/core/localization/provider/locale_provider.dart
-```dart
-import 'package:flutter/material.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
-part 'locale_provider.g.dart';
-
-const String _localeKey = 'locale';
-
-@Riverpod(dependencies: [], keepAlive: true)
-class LocaleState extends _$LocaleState {
-  SharedPreferences? _prefs;
-
-  @override
-  Locale build() {
-    // 기본 로케일은 시스템 설정을 따름
-    return const Locale('ko');
-  }
-
-  // 지원하는 로케일 목록
-  static const supportedLocales = [
-    Locale('ko'), // 한국어
-    Locale('en'), // 영어
-  ];
-
-  // 로케일 변경
-  Future<void> setLocale(Locale locale) async {
-    _prefs ??= await SharedPreferences.getInstance();
-    await _prefs!.setString(_localeKey, locale.languageCode);
-    state = locale;
-  }
-
-  // 저장된 로케일 불러오기
-  Future<void> loadSavedLocale() async {
-    _prefs ??= await SharedPreferences.getInstance();
-    final savedLocale = _prefs!.getString(_localeKey);
-    if (savedLocale != null) {
-      state = Locale(savedLocale);
-    }
-  }
-}
-
-```
-## lib/core/theme/foundation/app_color.dart
+## lib/core/design/theme/foundation/app_color.dart
 ```dart
 part of 'app_theme.dart';
 
@@ -607,7 +68,7 @@ class AppColor {
 }
 
 ```
-## lib/core/theme/foundation/app_font.dart
+## lib/core/design/theme/foundation/app_font.dart
 ```dart
 // lib/core/theme/foundation/app_font.dart
 
@@ -831,7 +292,7 @@ class AppFont {
 }
 
 ```
-## lib/core/theme/foundation/app_mode.dart
+## lib/core/design/theme/foundation/app_mode.dart
 ```dart
 part of 'app_theme.dart';
 
@@ -850,10 +311,10 @@ enum AppMode {
 }
 
 ```
-## lib/core/theme/foundation/app_theme.dart
+## lib/core/design/theme/foundation/app_theme.dart
 ```dart
 import 'package:flutter/material.dart';
-import 'package:pascal/core/theme/resources/font.dart';
+import 'package:pascal/core/design/theme/resources/font.dart';
 
 part 'app_color.dart';
 part 'app_font.dart';
@@ -868,15 +329,15 @@ abstract class AppTheme {
 }
 
 ```
-## lib/core/theme/pages/theme_test_page.dart
+## lib/core/design/theme/pages/theme_test_page.dart
 ```dart
 // lib/core/theme/test/theme_test_page.dart
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/core/localization/pages/locale_test_page.dart';
-import 'package:pascal/core/theme/foundation/app_theme.dart';
-import 'package:pascal/core/theme/providers/theme_provider.dart';
+import 'package:pascal/core/design/theme/foundation/app_theme.dart';
+import 'package:pascal/core/design/theme/providers/theme_provider.dart';
+import 'package:pascal/core/utils/localization/pages/locale_test_page.dart';
 
 class ThemeTestPage extends ConsumerWidget {
   const ThemeTestPage({super.key});
@@ -1073,13 +534,13 @@ class ThemeTestPage extends ConsumerWidget {
 }
 
 ```
-## lib/core/theme/providers/theme_provider.dart
+## lib/core/design/theme/providers/theme_provider.dart
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/core/theme/foundation/app_theme.dart';
-import 'package:pascal/core/theme/theme/dark_theme.dart';
-import 'package:pascal/core/theme/theme/light_theme.dart';
+import 'package:pascal/core/design/theme/foundation/app_theme.dart';
+import 'package:pascal/core/design/theme/theme/dark_theme.dart';
+import 'package:pascal/core/design/theme/theme/light_theme.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'theme_provider.g.dart';
@@ -1108,7 +569,7 @@ extension ThemeProviderExt on WidgetRef {
 }
 
 ```
-## lib/core/theme/resources/font.dart
+## lib/core/design/theme/resources/font.dart
 ```dart
 // lib/core/theme/resources/font.dart
 
@@ -1150,7 +611,7 @@ class Pretendard implements Font {
 }
 
 ```
-## lib/core/theme/resources/palette.dart
+## lib/core/design/theme/resources/palette.dart
 ```dart
 import 'package:flutter/material.dart';
 
@@ -1174,11 +635,11 @@ abstract class Palette {
 }
 
 ```
-## lib/core/theme/theme/dark_theme.dart
+## lib/core/design/theme/theme/dark_theme.dart
 ```dart
 import 'package:flutter/material.dart';
-import 'package:pascal/core/theme/foundation/app_theme.dart';
-import 'package:pascal/core/theme/resources/font.dart';
+import 'package:pascal/core/design/theme/foundation/app_theme.dart';
+import 'package:pascal/core/design/theme/resources/font.dart';
 
 class DarkTheme implements AppTheme {
   // 싱글톤 패턴 구현
@@ -1239,11 +700,11 @@ class DarkTheme implements AppTheme {
 }
 
 ```
-## lib/core/theme/theme/light_theme.dart
+## lib/core/design/theme/theme/light_theme.dart
 ```dart
 import 'package:flutter/material.dart';
-import 'package:pascal/core/theme/foundation/app_theme.dart';
-import 'package:pascal/core/theme/resources/font.dart';
+import 'package:pascal/core/design/theme/foundation/app_theme.dart';
+import 'package:pascal/core/design/theme/resources/font.dart';
 
 class LightTheme implements AppTheme {
   // 싱글톤 패턴 구현
@@ -1303,15 +764,556 @@ class LightTheme implements AppTheme {
 }
 
 ```
+## lib/core/utils/localization/generated/intl/messages_all.dart
+```dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// This is a library that looks up messages for specific locales by
+// delegating to the appropriate library.
+
+// Ignore issues from commonly used lints in this file.
+// ignore_for_file:implementation_imports, file_names, unnecessary_new
+// ignore_for_file:unnecessary_brace_in_string_interps, directives_ordering
+// ignore_for_file:argument_type_not_assignable, invalid_assignment
+// ignore_for_file:prefer_single_quotes, prefer_generic_function_type_aliases
+// ignore_for_file:comment_references
+
+import 'dart:async';
+
+import 'package:flutter/foundation.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/message_lookup_by_library.dart';
+import 'package:intl/src/intl_helpers.dart';
+
+import 'messages_en.dart' as messages_en;
+import 'messages_ko.dart' as messages_ko;
+
+typedef Future<dynamic> LibraryLoader();
+Map<String, LibraryLoader> _deferredLibraries = {
+  'en': () => new SynchronousFuture(null),
+  'ko': () => new SynchronousFuture(null),
+};
+
+MessageLookupByLibrary? _findExact(String localeName) {
+  switch (localeName) {
+    case 'en':
+      return messages_en.messages;
+    case 'ko':
+      return messages_ko.messages;
+    default:
+      return null;
+  }
+}
+
+/// User programs should call this before using [localeName] for messages.
+Future<bool> initializeMessages(String localeName) {
+  var availableLocale = Intl.verifiedLocale(
+      localeName, (locale) => _deferredLibraries[locale] != null,
+      onFailure: (_) => null);
+  if (availableLocale == null) {
+    return new SynchronousFuture(false);
+  }
+  var lib = _deferredLibraries[availableLocale];
+  lib == null ? new SynchronousFuture(false) : lib();
+  initializeInternalMessageLookup(() => new CompositeMessageLookup());
+  messageLookup.addLocale(availableLocale, _findGeneratedMessagesFor);
+  return new SynchronousFuture(true);
+}
+
+bool _messagesExistFor(String locale) {
+  try {
+    return _findExact(locale) != null;
+  } catch (e) {
+    return false;
+  }
+}
+
+MessageLookupByLibrary? _findGeneratedMessagesFor(String locale) {
+  var actualLocale =
+      Intl.verifiedLocale(locale, _messagesExistFor, onFailure: (_) => null);
+  if (actualLocale == null) return null;
+  return _findExact(actualLocale);
+}
+
+```
+## lib/core/utils/localization/generated/intl/messages_en.dart
+```dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// This is a library that provides messages for a en locale. All the
+// messages from the main program should be duplicated here with the same
+// function name.
+
+// Ignore issues from commonly used lints in this file.
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
+// ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
+// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
+
+import 'package:intl/intl.dart';
+import 'package:intl/message_lookup_by_library.dart';
+
+final messages = new MessageLookup();
+
+typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
+
+class MessageLookup extends MessageLookupByLibrary {
+  String get localeName => 'en';
+
+  final messages = _notInlinedMessages(_notInlinedMessages);
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "appName": MessageLookupByLibrary.simpleMessage("Pascal"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings")
+      };
+}
+
+```
+## lib/core/utils/localization/generated/intl/messages_ko.dart
+```dart
+// DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
+// This is a library that provides messages for a ko locale. All the
+// messages from the main program should be duplicated here with the same
+// function name.
+
+// Ignore issues from commonly used lints in this file.
+// ignore_for_file:unnecessary_brace_in_string_interps, unnecessary_new
+// ignore_for_file:prefer_single_quotes,comment_references, directives_ordering
+// ignore_for_file:annotate_overrides,prefer_generic_function_type_aliases
+// ignore_for_file:unused_import, file_names, avoid_escaping_inner_quotes
+// ignore_for_file:unnecessary_string_interpolations, unnecessary_string_escapes
+
+import 'package:intl/intl.dart';
+import 'package:intl/message_lookup_by_library.dart';
+
+final messages = new MessageLookup();
+
+typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
+
+class MessageLookup extends MessageLookupByLibrary {
+  String get localeName => 'ko';
+
+  final messages = _notInlinedMessages(_notInlinedMessages);
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "appName": MessageLookupByLibrary.simpleMessage("Pascal"),
+        "language": MessageLookupByLibrary.simpleMessage("언어"),
+        "settings": MessageLookupByLibrary.simpleMessage("설정")
+      };
+}
+
+```
+## lib/core/utils/localization/generated/l10n.dart
+```dart
+// GENERATED CODE - DO NOT MODIFY BY HAND
+import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'intl/messages_all.dart';
+
+// **************************************************************************
+// Generator: Flutter Intl IDE plugin
+// Made by Localizely
+// **************************************************************************
+
+// ignore_for_file: non_constant_identifier_names, lines_longer_than_80_chars
+// ignore_for_file: join_return_with_assignment, prefer_final_in_for_each
+// ignore_for_file: avoid_redundant_argument_values, avoid_escaping_inner_quotes
+
+class S {
+  S();
+
+  static S? _current;
+
+  static S get current {
+    assert(_current != null,
+        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    return _current!;
+  }
+
+  static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
+
+  static Future<S> load(Locale locale) {
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
+    final localeName = Intl.canonicalizedLocale(name);
+    return initializeMessages(localeName).then((_) {
+      Intl.defaultLocale = localeName;
+      final instance = S();
+      S._current = instance;
+
+      return instance;
+    });
+  }
+
+  static S of(BuildContext context) {
+    final instance = S.maybeOf(context);
+    assert(instance != null,
+        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    return instance!;
+  }
+
+  static S? maybeOf(BuildContext context) {
+    return Localizations.of<S>(context, S);
+  }
+
+  /// `Pascal`
+  String get appName {
+    return Intl.message(
+      'Pascal',
+      name: 'appName',
+      desc: 'The application name',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: 'Settings menu title',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: 'Language selection option',
+      args: [],
+    );
+  }
+}
+
+class AppLocalizationDelegate extends LocalizationsDelegate<S> {
+  const AppLocalizationDelegate();
+
+  List<Locale> get supportedLocales {
+    return const <Locale>[
+      Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ko'),
+    ];
+  }
+
+  @override
+  bool isSupported(Locale locale) => _isSupported(locale);
+  @override
+  Future<S> load(Locale locale) => S.load(locale);
+  @override
+  bool shouldReload(AppLocalizationDelegate old) => false;
+
+  bool _isSupported(Locale locale) {
+    for (var supportedLocale in supportedLocales) {
+      if (supportedLocale.languageCode == locale.languageCode) {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+```
+## lib/core/utils/localization/l10n/intl_en.arb
+```arb
+{
+    "@@locale": "en",
+    "appName": "Pascal",
+    "@appName": {
+        "description": "The application name"
+    },
+    "settings": "Settings",
+    "@settings": {
+        "description": "Settings menu title"
+    },
+    "language": "Language",
+    "@language": {
+        "description": "Language selection option"
+    }
+  }
+```
+## lib/core/utils/localization/l10n/intl_ko.arb
+```arb
+{
+    "@@locale": "ko",
+    "appName": "Pascal",
+    "settings": "설정",
+    "language": "언어"
+  }
+```
+## lib/core/utils/localization/pages/locale_test_page.dart
+```dart
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pascal/core/design/theme/foundation/app_theme.dart';
+import 'package:pascal/core/design/theme/providers/theme_provider.dart';
+import 'package:pascal/core/utils/localization/provider/l10n_provider.dart';
+import 'package:pascal/core/utils/localization/provider/locale_provider.dart';
+
+class LocaleTestPage extends ConsumerWidget {
+  const LocaleTestPage({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = ref.watch(l10nProvider);
+    final theme = ref.theme;
+    final color = theme.color;
+    final font = theme.font;
+    final currentLocale = ref.watch(localeStateProvider);
+
+    return Scaffold(
+      backgroundColor: color.background,
+      appBar: AppBar(
+        backgroundColor: color.surface,
+        title: Text('다국어 테스트', style: font.title1),
+        actions: [
+          // 언어 변경 버튼
+          TextButton(
+            onPressed: () {
+              final newLocale = currentLocale.languageCode == 'ko'
+                  ? const Locale('en')
+                  : const Locale('ko');
+              ref.read(localeStateProvider.notifier).setLocale(newLocale);
+            },
+            child: Text(
+              currentLocale.languageCode.toUpperCase(),
+              style: font.body1Medium.copyWith(color: color.primary),
+            ),
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // 현재 로케일 정보
+            _buildSection(
+              title: '현재 로케일 정보',
+              content: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildInfoTile('언어 코드', currentLocale.languageCode),
+                  const SizedBox(height: 8),
+                  _buildInfoTile('국가 코드', currentLocale.countryCode ?? '없음'),
+                ],
+              ),
+              font: font,
+              color: color,
+            ),
+
+            const SizedBox(height: 32),
+
+            // 번역 테스트
+            _buildSection(
+              title: '번역 테스트',
+              content: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildTranslationTile(
+                    'appName',
+                    l10n.appName,
+                    font,
+                    color,
+                  ),
+                  const SizedBox(height: 16),
+                  _buildTranslationTile(
+                    'settings',
+                    l10n.settings,
+                    font,
+                    color,
+                  ),
+                  const SizedBox(height: 16),
+                  _buildTranslationTile(
+                    'language',
+                    l10n.language,
+                    font,
+                    color,
+                  ),
+                ],
+              ),
+              font: font,
+              color: color,
+            ),
+
+            const SizedBox(height: 32),
+
+            // 컴포넌트에서의 사용 예시
+            _buildSection(
+              title: '컴포넌트 테스트',
+              content: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // 버튼 예시
+                  ElevatedButton.icon(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: color.primary,
+                      foregroundColor: color.onPrimary,
+                    ),
+                    onPressed: () {},
+                    icon: const Icon(Icons.settings),
+                    label: Text(l10n.settings),
+                  ),
+                  const SizedBox(height: 16),
+
+                  // 카드 예시
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: color.surface,
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(l10n.appName, style: font.body1Medium),
+                        const SizedBox(height: 8),
+                        Text(l10n.settings, style: font.body2Medium),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              font: font,
+              color: color,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildSection({
+    required String title,
+    required Widget content,
+    required AppFont font,
+    required AppColor color,
+  }) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(title, style: font.title1),
+        const SizedBox(height: 16),
+        content,
+      ],
+    );
+  }
+
+  Widget _buildInfoTile(String label, String value) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 2,
+          child: Text(label),
+        ),
+        Expanded(
+          flex: 3,
+          child: Text(value),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildTranslationTile(
+    String key,
+    String value,
+    AppFont font,
+    AppColor color,
+  ) {
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: color.surface,
+        borderRadius: BorderRadius.circular(8),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Key: $key',
+            style: font.body3Medium.copyWith(color: color.hint),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            'Value: $value',
+            style: font.body3Medium,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+```
+## lib/core/utils/localization/provider/l10n_provider.dart
+```dart
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pascal/core/utils/localization/generated/l10n.dart';
+import 'package:pascal/core/utils/localization/provider/locale_provider.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'l10n_provider.g.dart';
+
+@Riverpod(dependencies: [LocaleState])
+S l10n(Ref ref) {
+  ref.watch(localeStateProvider);
+  return S.current;
+}
+
+```
+## lib/core/utils/localization/provider/locale_provider.dart
+```dart
+import 'package:flutter/material.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+part 'locale_provider.g.dart';
+
+const String _localeKey = 'locale';
+
+@Riverpod(dependencies: [], keepAlive: true)
+class LocaleState extends _$LocaleState {
+  SharedPreferences? _prefs;
+
+  @override
+  Locale build() {
+    // 기본 로케일은 시스템 설정을 따름
+    return const Locale('ko');
+  }
+
+  // 지원하는 로케일 목록
+  static const supportedLocales = [
+    Locale('ko'), // 한국어
+    Locale('en'), // 영어
+  ];
+
+  // 로케일 변경
+  Future<void> setLocale(Locale locale) async {
+    _prefs ??= await SharedPreferences.getInstance();
+    await _prefs!.setString(_localeKey, locale.languageCode);
+    state = locale;
+  }
+
+  // 저장된 로케일 불러오기
+  Future<void> loadSavedLocale() async {
+    _prefs ??= await SharedPreferences.getInstance();
+    final savedLocale = _prefs!.getString(_localeKey);
+    if (savedLocale != null) {
+      state = Locale(savedLocale);
+    }
+  }
+}
+
+```
 ## lib/main.dart
 ```dart
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/core/localization/generated/l10n.dart';
-import 'package:pascal/core/localization/provider/locale_provider.dart';
-import 'package:pascal/core/theme/pages/theme_test_page.dart';
-import 'package:pascal/core/theme/providers/theme_provider.dart';
+import 'package:pascal/core/design/theme/pages/theme_test_page.dart';
+import 'package:pascal/core/design/theme/providers/theme_provider.dart';
+import 'package:pascal/core/utils/localization/generated/l10n.dart';
+import 'package:pascal/core/utils/localization/provider/locale_provider.dart';
 
 void main() {
   runApp(

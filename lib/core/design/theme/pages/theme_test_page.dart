@@ -2,9 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/features/common/localization/pages/locale_test_page.dart';
-import 'package:pascal/features/common/theme/foundation/app_theme.dart';
-import 'package:pascal/features/common/theme/providers/theme_provider.dart';
+import 'package:pascal/core/design/theme/foundation/app_theme.dart';
+import 'package:pascal/core/design/theme/providers/theme_provider.dart';
+import 'package:pascal/core/utils/localization/pages/locale_test_page.dart';
 
 class ThemeTestPage extends ConsumerWidget {
   const ThemeTestPage({super.key});

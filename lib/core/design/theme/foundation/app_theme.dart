@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pascal/features/common/theme/resources/font.dart';
+import 'package:pascal/core/design/theme/resources/font.dart';
 
 part 'app_color.dart';
 part 'app_font.dart';

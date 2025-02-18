@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pascal/features/common/localization/generated/l10n.dart';
-import 'package:pascal/features/common/localization/provider/locale_provider.dart';
-import 'package:pascal/features/common/theme/pages/theme_test_page.dart';
-import 'package:pascal/features/common/theme/providers/theme_provider.dart';
+import 'package:pascal/core/design/theme/pages/theme_test_page.dart';
+import 'package:pascal/core/design/theme/providers/theme_provider.dart';
+import 'package:pascal/core/utils/localization/generated/l10n.dart';
+import 'package:pascal/core/utils/localization/provider/locale_provider.dart';
 
 void main() {
   runApp(
